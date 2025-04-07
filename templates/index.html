@@ -3,33 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Codificación Huffman Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>🔐 Codificación Huffman Manual</h1>
-    <form method="POST">
-        <input type="text" name="nombres" placeholder="Nombres" required>
-        <input type="text" name="apellidos" placeholder="Apellidos" required>
-        <input type="email" name="email" placeholder="Correo" required>
-        <button type="submit">Añadir</button>
-    </form>
+<body class="bg-gray-100 text-gray-800 font-sans">
+    <div class="max-w-4xl mx-auto p-6">
+        <h1 class="text-3xl font-bold text-center text-blue-700 mb-6">🔐 Codificación Huffman Manual</h1>
 
-    <p>{{ mensaje }}</p>
+        <form method="POST" class="bg-white p-6 rounded-lg shadow-md space-y-4">
+            <div class="grid md:grid-cols-3 gap-4">
+                <input type="text" name="nombres" placeholder="Nombres" required 
+                       class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <input type="text" name="apellidos" placeholder="Apellidos" required 
+                       class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <input type="email" name="email" placeholder="Correo" required 
+                       class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <button type="submit" 
+                    class="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition">
+                Añadir
+            </button>
+        </form>
 
-    {% if datos %}
-        <h2>🌐 Datos Originales</h2>
-        <pre>{{ datos | tojson(indent=2) }}</pre>
+        {% if mensaje %}
+            <p class="text-center text-green-600 font-semibold mt-4">{{ mensaje }}</p>
+        {% endif %}
 
-        <h2>📜 Códigos Huffman</h2>
-        <pre>{{ codigos | tojson(indent=2) }}</pre>
+        {% if datos %}
+            <div class="mt-10 space-y-6">
+                <div>
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-2">🌐 Datos Originales</h2>
+                    <pre class="bg-white p-4 rounded-lg shadow overflow-auto text-sm">{{ datos | tojson(indent=2) }}</pre>
+                </div>
 
-        <h2>🔒 Datos Cifrados</h2>
-        <pre>{{ cifrado | tojson(indent=2) }}</pre>
+                <div>
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-2">📜 Códigos Huffman</h2>
+                    <pre class="bg-white p-4 rounded-lg shadow overflow-auto text-sm">{{ codigos | tojson(indent=2) }}</pre>
+                </div>
 
-        <h2>🔓 Datos Decifrados</h2>
-        <pre>{{ decifrado | tojson(indent=2) }}</pre>
+                <div>
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-2">🔒 Datos Cifrados</h2>
+                    <pre class="bg-white p-4 rounded-lg shadow overflow-auto text-sm">{{ cifrado | tojson(indent=2) }}</pre>
+                </div>
 
-        <h2>🌳 Árbol de Huffman</h2>
-        <img src="{{ url_for('static', filename=imagen_arbol) }}" alt="Árbol de Huffman">
-    {% endif %}
+                <div>
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-2">🔓 Datos Decifrados</h2>
+                    <pre class="bg-white p-4 rounded-lg shadow overflow-auto text-sm">{{ decifrado | tojson(indent=2) }}</pre>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-2">🌳 Árbol de Huffman</h2>
+                    <div class="bg-white p-4 rounded-lg shadow text-center">
+                        <img src="{{ url_for('static', filename=imagen_arbol) }}" alt="Árbol de Huffman" class="mx-auto">
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
