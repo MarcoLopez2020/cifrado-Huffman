@@ -1,0 +1,17 @@
+[
+  {
+    "NOMBRES": "ALEX",
+    "APELLIDOS": "PONLUISA",
+    "email": "juan.perez@example.com"
+  },
+  {
+    "NOMBRES": "ISRAEL",
+    "APELLIDOS": "CURICHO",
+    "email": "maria.gomez@example.com"
+  },
+  {
+    "NOMBRES": "TAMIA",
+    "APELLIDOS": "MALIZA",
+    "email": "carlos.lopez@example.com"
+  }
+]
