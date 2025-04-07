@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Codificación Huffman Manual</title>
+</head>
+<body>
+    <h1>🔐 Codificación Huffman Manual</h1>
+    <form method="POST">
+        <input type="text" name="nombres" placeholder="Nombres" required>
+        <input type="text" name="apellidos" placeholder="Apellidos" required>
+        <input type="email" name="email" placeholder="Correo" required>
+        <button type="submit">Añadir</button>
+    </form>
+
+    <p>{{ mensaje }}</p>
+
+    {% if datos %}
+        <h2>🌐 Datos Originales</h2>
+        <pre>{{ datos | tojson(indent=2) }}</pre>
+
+        <h2>📜 Códigos Huffman</h2>
+        <pre>{{ codigos | tojson(indent=2) }}</pre>
+
+        <h2>🔒 Datos Cifrados</h2>
+        <pre>{{ cifrado | tojson(indent=2) }}</pre>
+
+        <h2>🔓 Datos Decifrados</h2>
+        <pre>{{ decifrado | tojson(indent=2) }}</pre>
+
+        <h2>🌳 Árbol de Huffman</h2>
+        <img src="{{ url_for('static', filename=imagen_arbol) }}" alt="Árbol de Huffman">
+    {% endif %}
+</body>
+</html>
